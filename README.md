@@ -1,6 +1,6 @@
 # SpringbootOpenIDClient
 
-#Descrption
+#Descrption 
 Spring Security Client created to perfrom OpenID Connect Flow with Forgerock OpenAM 
 
 #PreRquisites 
