@@ -1,0 +1,46 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          custom:
+            client-id: demoauth
+            client-secret: password123
+            scope: openid,profile,email,phone,address
+            authorization-grant-type: authorization_code
+            redirect-uri: https://app.example.com:8089/login/oauth2/code/custom
+        provider:
+          custom:
+            authorization-uri: https://hcl.forgerock.iam.example.com:8663/openam/oauth2/authorize
+            token-uri: https://hcl.forgerock.iam.example.com:8663/openam/oauth2/access_token
+            user-info-uri: https://hcl.forgerock.iam.example.com:8663/openam/oauth2/userinfo
+            jwk-set-uri: http://hcl.forgerock.iam.example.com:8081/openam/oauth2/connect/jwk_uri
+            user-name-attribute: sub
+           
+server: 
+  port: 8089
+  servlet: 
+    context-path: /
+  ssl:
+    key-alias: client                          
+    key-store: D:\Knowledge\HCL-ForgRock\keystore.jks                      
+    key-store-password: password         
+    key-password: password                    
+
+resourceserver:
+  api:
+    project:
+      url: https://hcl.forgerock.iam.example.com:8663/
+
+logging:
+  level:
+    root: INFO
+    org.springframework.security: DEBUG
+
+mvc:
+  view:
+   prefix: /WEB-INF/static/
+   suffix: .html 
+                    
+                                      
+              
